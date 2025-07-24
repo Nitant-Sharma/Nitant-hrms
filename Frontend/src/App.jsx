@@ -10,6 +10,8 @@ import Chat from './components/Chat';
 // import Settings from './components/Settings';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap-icons/font/bootstrap-icons.css"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 function App() {
   const [activePage, setActivePage] = useState('dashboard');
@@ -34,6 +36,13 @@ function App() {
       <div className="main-content p-4" style={{ width: '100%' }}>
         {renderPage()}
       </div>
+       <BrowserRouter>
+    <Sidebar></Sidebar>
+    <Routes>
+            <Route path='/' element={<Profile/>}></Route>
+    </Routes>
+    </BrowserRouter>
+    <Profile></Profile>
     </div>
   );
 
