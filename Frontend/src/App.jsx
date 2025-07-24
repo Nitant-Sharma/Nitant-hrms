@@ -37,12 +37,11 @@ function App() {
         {renderPage()}
       </div>
        <BrowserRouter>
-    <Sidebar></Sidebar>
     <Routes>
             <Route path='/' element={<Profile/>}></Route>
     </Routes>
-    </BrowserRouter>
     <Profile></Profile>
+    </BrowserRouter>
     </div>
   );
 
