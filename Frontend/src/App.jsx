@@ -23,6 +23,7 @@ function App() {
       case 'recognition': return <Recognition />;
       case 'event': return <Events />;
       case 'profile': return <Profile />;
+      case 'Edit_Profile': return <Edit_Profile/>
       case 'settings': return <Settings />;
       default: return <DashboardMain />;
     }

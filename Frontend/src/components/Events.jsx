@@ -284,7 +284,7 @@ function Event2({ onNavigate, eventData }) {
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label">Event Title</label>
-                <input type="text" className="form-control" value={eventTitle} onChange={(e) => setEventTitle(e.target.value)} />
+                <input type="text" className="form-control" value={email} onChange={(e) => setEventTitle(e.target.value)} required/>
               </div>
               <div className="mb-3">
                 <label className="form-label">Name</label>

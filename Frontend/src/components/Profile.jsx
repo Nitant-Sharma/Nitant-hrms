@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import Edit_profile from "./Edit_profile";
 
-const Profile = () => {
+export default function Profile(){ 
+
   return (
-    <div className="main-content">
+    <><div className="main-content">
       <div className="container py-4">
         <h3 className="fw-bold mb-4">Profile</h3>
         <div className="row">
@@ -14,8 +17,7 @@ const Profile = () => {
                     src="/maria.jpg"
                     alt="Profile"
                     className="rounded-circle mb-3"
-                    style={{ width: "120px", height: "120px", objectFit: "cover" }}
-                  />
+                    style={{ width: "120px", height: "120px", objectFit: "cover" }} />
                   <h4>Maria D Souza</h4>
                   <p className="text-muted">HR Manager</p>
                 </div>
@@ -46,18 +48,14 @@ const Profile = () => {
                     <p>New York, NY</p>
                   </div>
                 </div>
-
                 <div className="text-center mt-4">
                   <button className="btn btn-primary me-2">Edit Profile</button>
-                  <button className="btn btn-outline-secondary">Change Password</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </div><Edit_profile/></>
   );
 };
-
-export default Profile;
