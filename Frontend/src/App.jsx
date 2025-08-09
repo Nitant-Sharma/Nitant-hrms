@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import DashboardMain from './components/Dashboard';
 import Chat from './components/Chat';
@@ -10,26 +10,19 @@ import Profile from './components/Profile';
 import Settings from './components/Settings';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootstrap-icons/font/bootstrap-icons.css"
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom"
 
 function App() {
-  const [activePage, setActivePage] = useState('dashboard');
 
-  const renderPage = () => {
-    switch (activePage) {
-      case 'dashboard': return <DashboardMain />;
-      case 'chat': return <Chat />;
-      case 'feed': return <Feed />;
-      case 'employees': return <Employee />;
-      case 'recognition': return <Recognition />;
-      case 'event': return <Events />;
-      case 'profile': return <Profile />;
-      case 'Edit_Profile': return <Edit_Profile/>
-      case 'settings': return <Settings />;
-      default: return <DashboardMain />;
-    }
-  };
+  const [activePage, setActivePage] = useState('dashboard');
+  const [profileData, setProfileData] = useState({
+    email: "maria.dsouza@company.com",
+    phone: "+1 (555) 123-4567",
+    department: "Human Resources",
+    employeeID: "HR001",
+    date: "2020-01-15",
+    location: "New York, NY",
+  });
 
   return (
     <div className='d-flex h-100'>
@@ -41,14 +34,18 @@ function App() {
         padding: '20px',
         backgroundColor: '#f8f9fa'
       }}>
-        {renderPage()}
+       <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<DashboardMain />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/employees" element={<Employee />} />
+          <Route path="/recognition" element={<Recognition />} />
+          <Route path="/event" element={<Events />} />
+          <Route path="/profile" element={<Profile profile={profileData} setProfile={setProfileData}/>} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </div>
-       <BrowserRouter>
-    <Routes>
-            <Route path='/' element={<Profile/>}></Route>
-    </Routes>
-    <Profile></Profile>
-    </BrowserRouter>
     </div>
   );
 }

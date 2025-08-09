@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     FaHome,
     FaChartBar,
@@ -74,6 +75,13 @@ function InjectStyles({ css }) {
 }
 
 const Sidebar = ({ setActivePage, activePage }) => {
+    const navigate = useNavigate();
+
+    const handlePageClick = (page) => {
+        setActivePage(page);
+        navigate(`/${page}`);
+    };
+
     return (
         <>
             <InjectStyles css={styles} />
@@ -101,49 +109,49 @@ const Sidebar = ({ setActivePage, activePage }) => {
 
                 {/* Navigation */}
                 <ul className="nav flex-column mb-auto">
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('dashboard')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('dashboard')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'dashboard' ? 'active' : ''}`}>
                             <FaHome className="me-2" /> Dashboard
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('chat')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('chat')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'chat' ? 'active' : ''}`}>
                             <FaComments className="me-2" /> Chat
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('employees')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('employees')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'employees' ? 'active' : ''}`}>
                             <FaUsers className="me-2" /> Employees
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('feed')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('feed')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'feed' ? 'active' : ''}`}>
                             <FaBookOpen className="me-2" /> Feed
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('recognition')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('recognition')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'recognition' ? 'active' : ''}`}>
                             <FaChartBar className="me-2" /> Recognition
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('event')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('event')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'event' ? 'active' : ''}`}>
                             <FaCalendarAlt className="me-2" /> Event
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('profile')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('profile')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'profile' ? 'active' : ''}`}>
                             <FaUser className="me-2" /> Profile
                         </div>
                     </li>
 
-                    <li className="nav-item w-100 mb-0" onClick={() => setActivePage('settings')} style={{ cursor: 'pointer' }}>
+                    <li className="nav-item w-100 mb-0" onClick={() => handlePageClick('settings')} style={{ cursor: 'pointer' }}>
                         <div className={`nav-link text-white w-100 text-start ${activePage === 'settings' ? 'active' : ''}`}>
                             <FaCog className="me-2" /> Settings
                         </div>
