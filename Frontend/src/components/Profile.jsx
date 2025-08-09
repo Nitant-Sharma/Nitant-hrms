@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
 import { useState } from "react";
 import Edit_profile from "./Edit_profile";
-
 export default function Profile(){ 
 
   return (

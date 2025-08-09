@@ -10,6 +10,8 @@ import Profile from './components/Profile';
 import Settings from './components/Settings';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap-icons/font/bootstrap-icons.css"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 function App() {
   const [activePage, setActivePage] = useState('dashboard');
@@ -41,6 +43,12 @@ function App() {
       }}>
         {renderPage()}
       </div>
+       <BrowserRouter>
+    <Routes>
+            <Route path='/' element={<Profile/>}></Route>
+    </Routes>
+    <Profile></Profile>
+    </BrowserRouter>
     </div>
   );
 }
