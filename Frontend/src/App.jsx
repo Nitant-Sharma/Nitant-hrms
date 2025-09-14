@@ -18,9 +18,9 @@ function App() {
   const [profileData, setProfileData] = useState({
     email: "maria.dsouza@company.com",
     phone: "+1 (555) 123-4567",
-    department: "Human Resources",
-    employeeID: "HR001",
-    date: "2020-01-15",
+    role: "HR Manager",
+    department: "Human Resource",
+    id: "HR001",
     location: "New York, NY",
   });
 
